@@ -14,13 +14,6 @@ class AppSettings(BaseSettings):
     CONTACT_EMAIL: str | None = None
 
 
-class CryptSettings(BaseSettings):
-    SECRET_KEY: SecretStr = SecretStr("secret-key")
-    ALGORITHM: str = "HS256"
-    ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
-    REFRESH_TOKEN_EXPIRE_DAYS: int = 7
-
-
 class DatabaseSettings(BaseSettings):
     pass
 
@@ -116,6 +109,8 @@ class CRUDAdminSettings(BaseSettings):
     CRUD_ADMIN_ENABLED: bool = True
     CRUD_ADMIN_MOUNT_PATH: str = "/admin"
 
+    SECRET_KEY: SecretStr = SecretStr("secret-key")
+
     CRUD_ADMIN_ALLOWED_IPS_LIST: list[str] | None = None
     CRUD_ADMIN_ALLOWED_NETWORKS_LIST: list[str] | None = None
     CRUD_ADMIN_MAX_SESSIONS: int = 10
@@ -153,7 +148,6 @@ class Settings(
     AppSettings,
     SQLiteSettings,
     PostgresSettings,
-    CryptSettings,
     FirstUserSettings,
     TestSettings,
     RedisCacheSettings,

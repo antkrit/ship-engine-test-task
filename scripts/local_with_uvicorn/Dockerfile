@@ -33,6 +33,9 @@ COPY --from=builder --chown=app:app /app/.venv /app/.venv
 # Ensure the virtual environment is in the PATH
 ENV PATH="/app/.venv/bin:$PATH"
 
+# Download the default spaCy model
+RUN python -m spacy download en_core_web_sm
+
 # Switch to the non-root user
 USER app
 

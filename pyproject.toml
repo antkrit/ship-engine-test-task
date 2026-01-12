@@ -33,6 +33,7 @@ dependencies = [
     "gunicorn>=23.0.0",
     "ruff>=0.11.13",
     "mypy>=1.16.0",
+    "spacy>=3.7.0",
 ]
 
 [project.optional-dependencies]
